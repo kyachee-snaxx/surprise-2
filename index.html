@@ -53,6 +53,51 @@
             color: #b58252;
             margin-top: 0;
         }
+
+        /* --- PUTHIYA IMAGE BUTTONS & GALLERY CSS --- */
+        .gallery-section {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .btn-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        .img-toggle-btn {
+            background-color: #d4a373;
+            color: white;
+            border: none;
+            padding: 10px;
+            font-size: 14px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 0; /* Main button style overwriting */
+            transition: background 0.3s ease;
+        }
+        .img-toggle-btn:hover {
+            background-color: #b58252;
+        }
+        .sub-img-box {
+            display: none; /* Adyam images hidden aayirikkum */
+            margin-top: 15px;
+            animation: fadeIn 0.5s ease;
+        }
+        .sub-img {
+            width: 100%;
+            max-height: 400px;
+            object-fit: contain;
+            border-radius: 10px;
+            border: 2px solid #d4a373;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        /* ------------------------------------------- */
+
         .details-table {
             width: 100%;
             margin-top: 25px;
@@ -99,7 +144,7 @@
             border-color: #d4a373;
             outline: none;
         }
-        button {
+        .submit-btn {
             width: 100%;
             padding: 14px;
             background-color: #2a9d8f;
@@ -111,7 +156,7 @@
             font-weight: bold;
             margin-top: 10px;
         }
-        button:hover {
+        .submit-btn:hover {
             background-color: #21867a;
         }
     </style>
@@ -120,19 +165,37 @@
 
 <div class="container">
     
-    <!-- Tagline -->
     <div class="header-container">
-        <span class="header-tag">വരനെ ആവശ്യമുണ്ട് </span>
+        <span class="header-tag"> വരനെ ആവശ്യമുണ്ട് </span>
     </div>
 
-    <!-- 1. Girl's Photo Section -->
-    <!-- Ningalude photo folder-il ittu 'asiya.jpg' എന്ന് rename cheyyauka -->
     <img src="asiya.jpg" alt="Asiya Bathool" class="profile-img">
     
     <h2>Asiya Bathool</h2>
     <h3>Biodata</h3>
+
+    <div class="gallery-section">
+        <div class="btn-container">
+            <button class="img-toggle-btn" onclick="toggleImage('img1')">Another Image 1</button>
+            <button class="img-toggle-btn" onclick="toggleImage('img2')">Another Image 2</button>
+            <button class="img-toggle-btn" onclick="toggleImage('img3')">Another Image 3</button>
+            <button class="img-toggle-btn" onclick="toggleImage('img4')">Another Image 4</button>
+        </div>
+
+        <div id="img1" class="sub-img-box">
+            <img src="asiya1.jpg" alt="Asiya Image 1" class="sub-img">
+        </div>
+        <div id="img2" class="sub-img-box">
+            <img src="asiya2.jpg" alt="Asiya Image 2" class="sub-img">
+        </div>
+        <div id="img3" class="sub-img-box">
+            <img src="asiya3.jpg" alt="Asiya Image 3" class="sub-img">
+        </div>
+        <div id="img4" class="sub-img-box">
+            <img src="asiya4.jpg" alt="Asiya Image 4" class="sub-img">
+        </div>
+    </div>
     
-    <!-- 2. Profile Details Section -->
     <table class="details-table">
         <tr>
             <td class="label">Name (പേര്)</td>
@@ -150,16 +213,12 @@
             <td class="label">Education (വിദ്യാഭ്യാസം)</td>
             <td>[Higher Secondary / Degree - Type Here]</td>
         </tr>
-        
     </table>
 
-    <!-- 3. Form for Varan (Groom Proposal Form) -->
     <div class="form-section">
         <h3> താൽപര്യമുണ്ടെങ്കിൽ താങ്കളുടെ വിവരങ്ങൾ ഇവിടെ സമർപ്പിക്കുക (Form for Varan)</h3>
         
-        <!-- Form data e-mail-il labhikkan vendi Formspree link 'action'-il nalkാം -->
         <form action="YOUR_FORMSPREE_URL_HERE" method="POST">
-            
             <div class="form-group">
                 <label for="groom-name">Groom's Name (വരന്റെ പേര്) *</label>
                 <input type="text" id="groom-name" name="Groom_Name" required placeholder="Enter groom's full name">
@@ -185,11 +244,30 @@
                 <input type="tel" id="groom-phone" name="Contact_Number" required placeholder="Enter phone or WhatsApp number">
             </div>
 
-            
-            <button type="submit">Submit Proposal</button>
+            <button type="submit" class="submit-btn">Submit Proposal</button>
         </form>
     </div>
 </div>
 
+<script>
+    function toggleImage(imgId) {
+        // Adyam ella image box-കളും hide cheyyunnu
+        var allBoxes = document.getElementsByClassName('sub-img-box');
+        for (var i = 0; i < allBoxes.length; i++) {
+            if (allBoxes[i].id !== imgId) {
+                allBoxes[i].style.display = 'none';
+            }
+        }
+
+        // Click cheytha image ippo block aano ennu chack cheyth hide/show cheyyunnu
+        var targetBox = document.getElementById(imgId);
+        if (targetBox.style.display === 'block') {
+            targetBox.style.display = 'none';
+        } else {
+            targetBox.style.display = 'block';
+        }
+    }
+</script>
+
 </body>
-</html>
+    </html>
