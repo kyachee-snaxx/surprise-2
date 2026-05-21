@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matrimonial Profile - Asiya Bathool</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f7f0f5;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        .container {
+            max-width: 600px;
+            background: #ffffff;
+            margin: 0 auto;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        .header-tag {
+            text-align: center;
+            background-color: #e63946;
+            color: white;
+            padding: 8px 15px;
+            font-weight: bold;
+            border-radius: 20px;
+            display: inline-block;
+            margin: 0 auto 20px auto;
+            font-size: 14px;
+        }
+        .header-container {
+            text-align: center;
+        }
+        .profile-img {
+            width: 220px;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 50%;
+            display: block;
+            margin: 0 auto 20px auto;
+            border: 4px solid #d4a373;
+        }
+        h2 {
+            text-align: center;
+            color: #2b2d42;
+            margin-bottom: 5px;
+        }
+        h3 {
+            text-align: center;
+            color: #b58252;
+            margin-top: 0;
+        }
+        .details-table {
+            width: 100%;
+            margin-top: 25px;
+            border-collapse: collapse;
+        }
+        .details-table td {
+            padding: 12px;
+            border-bottom: 1px solid #eee;
+            font-size: 16px;
+        }
+        .details-table td.label {
+            font-weight: bold;
+            color: #555;
+            width: 40%;
+        }
+        .form-section {
+            margin-top: 40px;
+            padding-top: 25px;
+            border-top: 2px dashed #d4a373;
+        }
+        .form-section h3 {
+            color: #e63946;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #444;
+            font-size: 14px;
+        }
+        input[type="text"], input[type="tel"], input[type="number"], textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-size: 15px;
+        }
+        input:focus, textarea:focus {
+            border-color: #d4a373;
+            outline: none;
+        }
+        button {
+            width: 100%;
+            padding: 14px;
+            background-color: #2a9d8f;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #21867a;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    
+    <!-- Tagline -->
+    <div class="header-container">
+        <span class="header-tag">വധുവിനെ ആവശ്യമുണ്ട് (Bride Profile)</span>
+    </div>
+
+    <!-- 1. Girl's Photo Section -->
+    <!-- Ningalude photo folder-il ittu 'asiya.jpg' എന്ന് rename cheyyauka -->
+    <img src="asiya.jpg" alt="Asiya Bathool" class="profile-img">
+    
+    <h2>Asiya Bathool</h2>
+    <h3>Biodata</h3>
+    
+    <!-- 2. Profile Details Section -->
+    <table class="details-table">
+        <tr>
+            <td class="label">Name (പേര്)</td>
+            <td>Asiya Bathool</td>
+        </tr>
+        <tr>
+            <td class="label">Age (പ്രായം)</td>
+            <td>18 Years</td>
+        </tr>
+        <tr>
+            <td class="label">Place (സ്ഥലം)</td>
+            <td>Erattupetta, Kottayam</td>
+        </tr>
+        <tr>
+            <td class="label">Education (വിദ്യാഭ്യാസം)</td>
+            <td>[Higher Secondary / Degree - Type Here]</td>
+        </tr>
+        <tr>
+            <td class="label">Family Details (കുടുംബ വിവരങ്ങൾ)</td>
+            <td>[Father, Mother & Siblings details type cheyyauka]</td>
+        </tr>
+    </table>
+
+    <!-- 3. Form for Varan (Groom Proposal Form) -->
+    <div class="form-section">
+        <h3>വരന്റെ വിവരങ്ങൾ ഇവിടെ സമർപ്പിക്കുക (Form for Varan)</h3>
+        
+        <!-- Form data e-mail-il labhikkan vendi Formspree link 'action'-il nalkാം -->
+        <form action="YOUR_FORMSPREE_URL_HERE" method="POST">
+            
+            <div class="form-group">
+                <label for="groom-name">Groom's Name (വരന്റെ പേര്) *</label>
+                <input type="text" id="groom-name" name="Groom_Name" required placeholder="Enter groom's full name">
+            </div>
+
+            <div class="form-group">
+                <label for="groom-age">Age (പ്രായം) *</label>
+                <input type="number" id="groom-age" name="Groom_Age" required placeholder="Enter age">
+            </div>
+
+            <div class="form-group">
+                <label for="groom-place">Place (സ്ഥലം) *</label>
+                <input type="text" id="groom-place" name="Groom_Place" required placeholder="Enter native place">
+            </div>
+
+            <div class="form-group">
+                <label for="groom-job">Education & Job (വിദ്യാഭ്യാസവും ജോലിയും) *</label>
+                <input type="text" id="groom-job" name="Groom_Education_Job" required placeholder="e.g., B.Com, Accountant in Gulf">
+            </div>
+
+            <div class="form-group">
+                <label for="groom-phone">Contact Number (ഫോൺ നമ്പർ) *</label>
+                <input type="tel" id="groom-phone" name="Contact_Number" required placeholder="Enter phone or WhatsApp number">
+            </div>
+
+            <div class="form-group">
+                <label for="family-details">Family Details (കുടുംബ വിവരങ്ങൾ)</label>
+                <textarea id="family-details" name="Family_Details" rows="3" placeholder="Achan, Amma, Joli, Veട്ടുവിവരങ്ങൾ..."></textarea>
+            </div>
+
+            <button type="submit">Submit Proposal</button>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>
