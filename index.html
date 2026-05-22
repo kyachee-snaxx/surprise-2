@@ -5,6 +5,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Matrimonial Profile - Asiya Bathool</title>
     <style>
+        /* --- PASSWORD PROTECT MODAL --- */
+        #password-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #f7f0f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+        }
+        .password-box {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 350px;
+            width: 100%;
+        }
+        .password-box h4 {
+            margin-top: 0;
+            color: #2b2d42;
+            font-size: 18px;
+        }
+        .password-box input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box;
+        }
+        .password-box button {
+            background-color: #e63946;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            width: 100%;
+        }
+
+        /* --- MAIN STYLE --- */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #f7f0f5;
@@ -54,7 +101,7 @@
             margin-top: 0;
         }
 
-        /* --- PUTHIYA IMAGE BUTTONS & GALLERY CSS --- */
+        /* --- GALLERY CSS --- */
         .gallery-section {
             text-align: center;
             margin: 20px 0;
@@ -74,14 +121,13 @@
             border-radius: 8px;
             cursor: pointer;
             font-weight: bold;
-            margin-top: 0; /* Main button style overwriting */
             transition: background 0.3s ease;
         }
         .img-toggle-btn:hover {
             background-color: #b58252;
         }
         .sub-img-box {
-            display: none; /* Adyam images hidden aayirikkum */
+            display: none;
             margin-top: 15px;
             animation: fadeIn 0.5s ease;
         }
@@ -96,7 +142,6 @@
             from { opacity: 0; transform: translateY(-10px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        /* ------------------------------------------- */
 
         .details-table {
             width: 100%;
@@ -113,6 +158,41 @@
             color: #555;
             width: 40%;
         }
+
+        /* --- TESTIMONIALS SECTION --- */
+        .testimonials {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #fff9fa;
+            border-radius: 10px;
+            border-left: 4px solid #e63946;
+        }
+        .testimonials h4 {
+            margin: 0 0 15px 0;
+            color: #2b2d42;
+            font-size: 18px;
+            text-align: center;
+        }
+        .review-box {
+            margin-bottom: 15px;
+            font-style: italic;
+            font-size: 15px;
+            color: #4a4a4a;
+            line-height: 1.6;
+        }
+        .review-box:last-child {
+            margin-bottom: 0;
+        }
+        .reviewer-name {
+            display: block;
+            font-weight: bold;
+            font-style: normal;
+            color: #b58252;
+            margin-top: 5px;
+            font-size: 13px;
+        }
+
+        /* --- FORM SECTION --- */
         .form-section {
             margin-top: 40px;
             padding-top: 25px;
@@ -162,6 +242,17 @@
     </style>
 </head>
 <body>
+
+<!-- PASSWORD POPUP OVERLAY -->
+<div id="password-overlay">
+    <div class="password-box">
+        <h4>തുടരുന്നതിനായി ലോഗിൻ ചെയ്യുക</h4>
+        <form onsubmit="unlockPage(event)">
+            <input type="password" id="insta-pass" placeholder=" Your Instagram password" required>
+            <button type="submit">Open Profile</button>
+        </form>
+    </div>
+</div>
 
 <div class="container">
     
@@ -215,10 +306,24 @@
         </tr>
     </table>
 
+    <!-- MALAYALAM TESTIMONIALS SECTION -->
+    <div class="testimonials">
+        <h4>അഭിപ്രായങ്ങൾ</h4>
+        <div class="review-box">
+            "എന്റെ ജീവിതത്തിൽ ഞാൻ കണ്ടിട്ടുള്ളതിൽ വച്ച് ഏറ്റവും സുന്ദരിയായ പെൺകുട്ടിയാണ് അവൾ. എല്ലാ കാര്യങ്ങളിലും തികഞ്ഞ അന്തസ്സും പെരുമാറ്റ മര്യാദയുമുള്ള വ്യക്തിത്വം."
+            <span class="reviewer-name">- വ്യക്തി 1</span>
+        </div>
+        <div class="review-box">
+            "നല്ലൊരു മനസ്സുള്ള, കാണാൻ ഏറെ ചന്തമുള്ള സുന്ദരി. അവളുടെ ആകർഷണീയതയും മികച്ച സ്വഭാവവും അവളെ ഒരുപാട് സവിശേഷതകളുള്ളതാക്കി മാറ്റുന്നു."
+            <span class="reviewer-name">- വ്യക്തി 2</span>
+        </div>
+    </div>
+
     <div class="form-section">
         <h3> താൽപര്യമുണ്ടെങ്കിൽ താങ്കളുടെ വിവരങ്ങൾ ഇവിടെ സമർപ്പിക്കുക (Form for Varan)</h3>
         
-        <form action="YOUR_FORMSPREE_URL_HERE" method="POST">
+        <!-- ലിങ്ക് കസ്റ്റമൈസ് ചെയ്യാൻ മറക്കരുത് -->
+        <form action="https://www.instagram.com/YOUR_INSTAGRAM_USERNAME/" method="GET">
             <div class="form-group">
                 <label for="groom-name">Groom's Name (വരന്റെ പേര്) *</label>
                 <input type="text" id="groom-name" name="Groom_Name" required placeholder="Enter groom's full name">
@@ -244,14 +349,19 @@
                 <input type="tel" id="groom-phone" name="Contact_Number" required placeholder="Enter phone or WhatsApp number">
             </div>
 
-            <button type="submit" class="submit-btn">Submit Proposal</button>
+            <button type="submit" class="submit-btn">Submit & Go to Instagram</button>
         </form>
     </div>
 </div>
 
 <script>
+    // Password Verification (Accepts anything typed)
+    function unlockPage(event) {
+        event.preventDefault();
+        document.getElementById('password-overlay').style.display = 'none';
+    }
+
     function toggleImage(imgId) {
-        // Adyam ella image box-കളും hide cheyyunnu
         var allBoxes = document.getElementsByClassName('sub-img-box');
         for (var i = 0; i < allBoxes.length; i++) {
             if (allBoxes[i].id !== imgId) {
@@ -259,7 +369,6 @@
             }
         }
 
-        // Click cheytha image ippo block aano ennu chack cheyth hide/show cheyyunnu
         var targetBox = document.getElementById(imgId);
         if (targetBox.style.display === 'block') {
             targetBox.style.display = 'none';
@@ -270,4 +379,4 @@
 </script>
 
 </body>
-    </html>
+                </html>
